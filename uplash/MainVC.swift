@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Alamofire
 
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBOutlet weak var tableView: UITableView!
     
+    var popularPhotos: PopularPhotos!
+    
+    //var popularPhotos = [PopularPhotos]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +24,26 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        popularPhotos = PopularPhotos()
+        
+        
+        print(CURRENT_URL)
+        popularPhotos.downloadPopularPhotos { 
+            //Setup UI load data
+        }
+        
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath)
         
-        return cell
+            return cell
+        
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
