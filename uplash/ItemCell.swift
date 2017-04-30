@@ -11,8 +11,8 @@ import UIKit
 class ItemCell: UITableViewCell {
     
     
-    @IBOutlet weak var thumbnail: UIView!
-
+    @IBOutlet weak var PreviewPhoto: UIImageView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +20,31 @@ class ItemCell: UITableViewCell {
         
         
     }
+    
+    func configureCell(popularPhoto: PopularPhotos) {
+        
+        print("ID>>>>>>>>>>\(popularPhoto.photoID)")
+        let photoURL = URL(string: popularPhoto.photoURL)!
+        
+        PreviewPhoto.sd_setImage(with: photoURL)
+        
 
+        //async is background thrend
+
+        
+        // DispatchQueue.main.async {
+        //    do {
+        //        let data = try Data(contentsOf: photoURL)
+        //        DispatchQueue.main.sync {
+        //            self.PreviewPhoto.image = UIImage(data: data)
+        //        }
+        //
+        //    } catch {
+        //        //catch error
+        //    }
+        //}
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
