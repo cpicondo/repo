@@ -99,7 +99,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="thumbnail" destination="QwZ-GC-IZf" id="NfU-yD-GKS"/>
+                                            <outlet property="PreviewPhoto" destination="oOR-c7-exu" id="nHY-rJ-wmH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -15,6 +15,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var popularPhotos: PopularPhotos!
+    var popularPhotosArray = [PopularPhotos]()
+    
+    
     
     //var popularPhotos = [PopularPhotos]()
 
@@ -25,12 +28,33 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        popularPhotos = PopularPhotos()
-        
         
         print(CURRENT_URL)
-        popularPhotos.downloadPopularPhotos { 
-            //Setup UI load data
+        self.downloadPopularPhotos {
+            //update ui
+            print("Welcome")
+        }
+        
+    }
+    
+    
+    func downloadPopularPhotos(completed: @escaping DownloadComplete) {
+        
+        Alamofire.request(CURRENT_URL).responseJSON { response in
+            
+            let result = response.result
+            
+            if let dict = result.value as? [Dictionary<String, AnyObject>] {
+                
+                for obj in dict {
+                    
+                    let popularPhotos = PopularPhotos(popularphotosDict: obj)
+                    self.popularPhotosArray.append(popularPhotos)
+                    print(self.popularPhotosArray.count)
+                }
+                    self.tableView.reloadData()
+            }
+            completed()
         }
         
     }
@@ -39,15 +63,19 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath)
-        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as? ItemCell {
+            
+            let popularPhotos = popularPhotosArray[indexPath.row]
+            cell.configureCell(popularPhoto: popularPhotos)
             return cell
-        
-        
+        } else {
+            
+            return ItemCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return popularPhotosArray.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

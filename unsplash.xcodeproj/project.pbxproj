@@ -31,6 +31,7 @@
 		2040148E1EB4DD99007F9CD2 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		20D77DFB1EB4FDFE0047D8D8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		20D77DFF1EB50B760047D8D8 /* PopularPhotos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularPhotos.swift; sourceTree = "<group>"; };
+		20DBDC631EB66C3200578541 /* unsplash-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "unsplash-Bridging-Header.h"; sourceTree = "<group>"; };
 		24CB8A1635DE28D97FC70F96 /* Pods_unsplash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_unsplash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38A9A0C436FC06A6369CE63D /* Pods-unsplash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unsplash.release.xcconfig"; path = "Pods/Target Support Files/Pods-unsplash/Pods-unsplash.release.xcconfig"; sourceTree = "<group>"; };
 		9D7ECAB435D515329C026734 /* Pods-unsplash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unsplash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-unsplash/Pods-unsplash.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 				2040145C1EB4AB43007F9CD2 /* Assets.xcassets */,
 				2040145E1EB4AB43007F9CD2 /* LaunchScreen.storyboard */,
 				204014611EB4AB43007F9CD2 /* Info.plist */,
+				20DBDC631EB66C3200578541 /* unsplash-Bridging-Header.h */,
 			);
 			name = unsplash;
 			path = uplash;
@@ -161,6 +163,7 @@
 					204014511EB4AB43007F9CD2 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = T5P553WJA5;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -378,11 +381,14 @@
 			baseConfigurationReference = 9D7ECAB435D515329C026734 /* Pods-unsplash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = T5P553WJA5;
 				INFOPLIST_FILE = uplash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.picondochristian.uplash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "uplash/unsplash-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -392,11 +398,13 @@
 			baseConfigurationReference = 38A9A0C436FC06A6369CE63D /* Pods-unsplash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = T5P553WJA5;
 				INFOPLIST_FILE = uplash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.picondochristian.uplash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "uplash/unsplash-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

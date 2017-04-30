@@ -23,23 +23,24 @@ class PopularPhotos {
         return _photoURL
     }
     
-    
-    
-    func downloadPopularPhotos(completed:  DownloadComplete) {
+
+    init(popularphotosDict: Dictionary<String, AnyObject>) {
         
-        Alamofire.request(CURRENT_URL).responseJSON { response in
+        if let IDs = popularphotosDict["id"] as? String {
             
-            let result = response.result
             
-            if let dict = result.value as? [Dictionary<String, AnyObject>] {
-                
-                if let ID = dict[0]["id"] as? String {
-                    
-                    self._photoID = ID
-                    print("ID>>> \(self._photoID)")
-                }
-            }
+            self._photoID = IDs
+            print(self._photoID)
+            
         }
-        completed()
+        if let urls = popularphotosDict["urls"] as? Dictionary<String, AnyObject> {
+            
+            if let regularphoto = urls["regular"] as? String {
+                
+                self._photoURL = regularphoto
+                print("URL>>>>>>> \(self._photoURL)")
+            }
+            
+        }
     }
 }
