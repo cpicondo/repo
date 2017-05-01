@@ -35,7 +35,7 @@ class PopularPhotos {
         }
         if let urls = popularphotosDict["urls"] as? Dictionary<String, AnyObject> {
             
-            if let regularphoto = urls["regular"] as? String {
+            if let regularphoto = urls["small"] as? String {
                 
                 self._photoURL = regularphoto
                 print("URL>>>>>>> \(self._photoURL)")

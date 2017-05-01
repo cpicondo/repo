@@ -16,6 +16,8 @@
 		2040148F1EB4DD99007F9CD2 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2040148E1EB4DD99007F9CD2 /* MaterialView.swift */; };
 		20D77DFC1EB4FDFE0047D8D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D77DFB1EB4FDFE0047D8D8 /* Constants.swift */; };
 		20D77E001EB50B760047D8D8 /* PopularPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D77DFF1EB50B760047D8D8 /* PopularPhotos.swift */; };
+		20DBDC671EB72D2A00578541 /* spin.gif in Resources */ = {isa = PBXBuildFile; fileRef = 20DBDC661EB72D2A00578541 /* spin.gif */; };
+		20DBDC691EB763C200578541 /* PhotoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DBDC681EB763C200578541 /* PhotoDetailVC.swift */; };
 		444F9A0299BB655BEDA72762 /* Pods_unsplash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CB8A1635DE28D97FC70F96 /* Pods_unsplash.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,8 @@
 		20D77DFB1EB4FDFE0047D8D8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		20D77DFF1EB50B760047D8D8 /* PopularPhotos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularPhotos.swift; sourceTree = "<group>"; };
 		20DBDC631EB66C3200578541 /* unsplash-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "unsplash-Bridging-Header.h"; sourceTree = "<group>"; };
+		20DBDC661EB72D2A00578541 /* spin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spin.gif; sourceTree = "<group>"; };
+		20DBDC681EB763C200578541 /* PhotoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailVC.swift; sourceTree = "<group>"; };
 		24CB8A1635DE28D97FC70F96 /* Pods_unsplash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_unsplash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38A9A0C436FC06A6369CE63D /* Pods-unsplash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unsplash.release.xcconfig"; path = "Pods/Target Support Files/Pods-unsplash/Pods-unsplash.release.xcconfig"; sourceTree = "<group>"; };
 		9D7ECAB435D515329C026734 /* Pods-unsplash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unsplash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-unsplash/Pods-unsplash.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,14 +74,15 @@
 		204014541EB4AB43007F9CD2 /* unsplash */ = {
 			isa = PBXGroup;
 			children = (
-				20D77DFA1EB4FDDE0047D8D8 /* Controller */,
 				20D77DF91EB4FDD60047D8D8 /* Model */,
 				204014691EB4C43D007F9CD2 /* view */,
+				20D77DFA1EB4FDDE0047D8D8 /* Controller */,
 				204014551EB4AB43007F9CD2 /* AppDelegate.swift */,
 				204014591EB4AB43007F9CD2 /* Main.storyboard */,
 				2040145C1EB4AB43007F9CD2 /* Assets.xcassets */,
 				2040145E1EB4AB43007F9CD2 /* LaunchScreen.storyboard */,
 				204014611EB4AB43007F9CD2 /* Info.plist */,
+				20DBDC661EB72D2A00578541 /* spin.gif */,
 				20DBDC631EB66C3200578541 /* unsplash-Bridging-Header.h */,
 			);
 			name = unsplash;
@@ -106,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				204014571EB4AB43007F9CD2 /* MainVC.swift */,
+				20DBDC681EB763C200578541 /* PhotoDetailVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -193,6 +199,7 @@
 			files = (
 				204014601EB4AB43007F9CD2 /* LaunchScreen.storyboard in Resources */,
 				2040145D1EB4AB43007F9CD2 /* Assets.xcassets in Resources */,
+				20DBDC671EB72D2A00578541 /* spin.gif in Resources */,
 				2040145B1EB4AB43007F9CD2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +261,7 @@
 			files = (
 				20D77DFC1EB4FDFE0047D8D8 /* Constants.swift in Sources */,
 				2040146D1EB4C909007F9CD2 /* ItemCell.swift in Sources */,
+				20DBDC691EB763C200578541 /* PhotoDetailVC.swift in Sources */,
 				20D77E001EB50B760047D8D8 /* PopularPhotos.swift in Sources */,
 				204014581EB4AB43007F9CD2 /* MainVC.swift in Sources */,
 				204014561EB4AB43007F9CD2 /* AppDelegate.swift in Sources */,

@@ -25,24 +25,9 @@ class ItemCell: UITableViewCell {
         
         print("ID>>>>>>>>>>\(popularPhoto.photoID)")
         let photoURL = URL(string: popularPhoto.photoURL)!
-        
-        PreviewPhoto.sd_setImage(with: photoURL)
-        
 
         //async is background thrend
-
-        
-        // DispatchQueue.main.async {
-        //    do {
-        //        let data = try Data(contentsOf: photoURL)
-        //        DispatchQueue.main.sync {
-        //            self.PreviewPhoto.image = UIImage(data: data)
-        //        }
-        //
-        //    } catch {
-        //        //catch error
-        //    }
-        //}
+        PreviewPhoto.sd_setImage(with: photoURL)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

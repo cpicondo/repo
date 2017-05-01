@@ -17,9 +17,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var popularPhotos: PopularPhotos!
     var popularPhotosArray = [PopularPhotos]()
     
-    
-    
-    //var popularPhotos = [PopularPhotos]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,15 +25,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        
-        print(CURRENT_URL)
         self.downloadPopularPhotos {
-            //update ui
-            print("Welcome")
         }
         
     }
-    
     
     func downloadPopularPhotos(completed: @escaping DownloadComplete) {
         
@@ -50,7 +42,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     
                     let popularPhotos = PopularPhotos(popularphotosDict: obj)
                     self.popularPhotosArray.append(popularPhotos)
-                    print(self.popularPhotosArray.count)
+                    //print(self.popularPhotosArray.count)
                 }
                     self.tableView.reloadData()
             }
@@ -59,17 +51,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as? ItemCell {
             
-            let popularPhotos = popularPhotosArray[indexPath.row]
-            cell.configureCell(popularPhoto: popularPhotos)
+            let photos = popularPhotosArray[indexPath.row]
+            cell.configureCell(popularPhoto: photos)
             return cell
         } else {
-            
             return ItemCell()
         }
     }
@@ -81,9 +70,21 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
-
-
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var photos: PopularPhotos!
+        photos = popularPhotosArray[indexPath.row]
+        performSegue(withIdentifier: "PhotoDetailVC", sender: photos)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destination = segue.destination as? PhotoDetailVC {
+            if let detailVC  = sender as? PopularPhotos {
+                destination.photo = detailVC
+            }
+        }
+    }
 }
 
